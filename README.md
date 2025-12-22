@@ -9,6 +9,7 @@ Crea un archivo `.env` en la raíz del proyecto:
 ```env
 PORT=3000
 SESSION_SECRET=tu_clave_secreta
+```
 
 ## 🚀 Arranque
 
@@ -17,6 +18,7 @@ Ejecuta los siguientes comandos en tu terminal:
 ```bash
 npm install
 node app.js
+```
 
 ## 📋 Características
 
