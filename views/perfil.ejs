@@ -1,0 +1,99 @@
+<main class="perfil">
+  <div class="bienvenida">
+    <h1>Bienvenido, <%= usuario.nombre %></h1>
+    <p>Has conectado con tu supraconciencia con éxito.</p>
+  </div>
+
+  <section class="seccion-carrito">
+    <div class="carrito-header">
+      <h2>Mi Carrito Espiritual (<%= carrito.length %>)</h2>
+      <% if (carrito.length > 0) { %>
+      <form action="/carrito/vaciar" method="POST">
+        <button type="submit" class="btn-vaciar">🗑 Vaciar selección</button>
+      </form>
+      <% } %>
+    </div>
+
+    <% if (carrito.length > 0) { %>
+    <div class="grid-sesiones">
+      <% carrito.forEach(item => { %>
+      <article class="sesion-card card-seleccionada">
+        <div class="sesion-info">
+          <span class="tag">Seleccionada</span>
+          <h3><%= item.nombre %></h3>
+          <p>Lista para comenzar</p>
+          <button class="btn-play-carrito">Comenzar Ahora</button>
+        </div>
+      </article>
+      <% }) %>
+    </div>
+    <% } else { %>
+    <p class="carrito-vacio">
+      Aún no has seleccionado ninguna sesión. Explora abajo para añadir a tu
+      viaje.
+    </p>
+    <% } %>
+  </section>
+
+  <% if (recomendadas.length > 0) { %>
+  <section class="seccion-sesiones">
+    <h2>Sesiones Recomendadas</h2>
+    <div class="grid-sesiones">
+      <% recomendadas.forEach(sesion => { %>
+      <article class="sesion-card especial">
+        <img
+          src="<%= sesion.img %>"
+          alt="<%= sesion.titulo %>"
+          loading="lazy"
+        />
+        <div class="sesion-info">
+          <span class="tag"><%= sesion.categoria %></span>
+          <h3><%= sesion.titulo %></h3>
+          <p>🕐 <%= sesion.duracion %></p>
+
+          <form action="/carrito/add" method="POST">
+            <input type="hidden" name="sessionId" value="<%= sesion.id %>" />
+            <input
+              type="hidden"
+              name="nombreSesion"
+              value="<%= sesion.titulo %>"
+            />
+            <button type="submit" class="btn-mas">Añadir</button>
+          </form>
+        </div>
+      </article>
+      <% }) %>
+    </div>
+  </section>
+  <% } %>
+
+  <section class="seccion-sesiones">
+    <h2>Explorar otras dimensiones</h2>
+    <div class="grid-sesiones">
+      <% otras.forEach(sesion => { %>
+      <article class="sesion-card">
+        <img
+          src="<%= sesion.img %>"
+          alt="<%= sesion.titulo %>"
+          loading="lazy"
+        />
+        <div class="sesion-info">
+          <span class="tag"><%= sesion.categoria %></span>
+          <h3><%= sesion.titulo %></h3>
+          <p>🕐 <%= sesion.duracion %></p>
+
+          <form action="/carrito/add" method="POST">
+            <input type="hidden" name="sessionId" value="<%= sesion.id %>" />
+            <input
+              type="hidden"
+              name="nombreSesion"
+              value="<%= sesion.titulo %>"
+            />
+            <button type="submit" class="btn-mas">Añadir</button>
+          </form>
+        </div>
+      </article>
+      <% }) %>
+    </div>
+  </section>
+</main>

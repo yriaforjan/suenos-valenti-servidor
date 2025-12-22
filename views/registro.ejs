@@ -1,0 +1,98 @@
+<main class="main-contenedor">
+  <section class="registro">
+    <h1>Ùnete a la experiencia</h1>
+
+    <% if(typeof(errores) !== "undefined" && errores.length) { %>
+    <div class="errores">
+      <p>Por favor, corrige estos errores:</p>
+      <ul>
+        <% errores.forEach(e => { %>
+        <li><%= e %></li>
+        <% }) %>
+      </ul>
+    </div>
+    <% } %>
+
+    <form action="/registro" method="post">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        name="nombre"
+        id="nombre-input"
+        value="<%= nombre || '' %>"
+        required
+      />
+
+      <label for="email">Correo electrónico</label>
+      <input
+        type="text"
+        name="email"
+        id="email-input"
+        value="<%= email || '' %>"
+        required
+      />
+
+      <label for="password">Contraseña </label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Mínimo 8 caracteres"
+        required
+      />
+
+      <label for="edad">Edad</label>
+      <input
+        type="number"
+        name="edad"
+        id="edad-input"
+        min="0"
+        value="<%= edad || '' %>"
+        required
+      />
+
+      <label for="ciudad">Ciudad</label>
+      <input
+        type="text"
+        name="ciudad"
+        id="ciudad-input"
+        value="<%= ciudad || ''%>"
+        required
+      />
+
+      <fieldset>
+        <legend>Intereses</legend>
+        <div class="fieldset-grid">
+          <div class="interes-item">
+            <input type="checkbox" name="intereses" id="meditacion"
+            value="meditacion" <%= (intereses||[]).includes('meditacion') ?
+            'checked' : '' %> />
+            <label for="meditacion">Meditación profunda</label>
+          </div>
+
+          <div class="interes-item">
+            <input type="checkbox" name="intereses" id="astral" value="astral"
+            <%= (intereses||[]).includes('astral') ? 'checked' : '' %> />
+            <label for="astral">Viajes astrales</label>
+          </div>
+
+          <div class="interes-item">
+            <input type="checkbox" name="intereses" id="sanacion"
+            value="sanacion" <%= (intereses||[]).includes('sanacion') ?
+            'checked' : '' %> />
+            <label for="sanacion">Sanación energética</label>
+          </div>
+
+          <div class="interes-item">
+            <input type="checkbox" name="intereses" id="mindfulness"
+            value="mindfulness" <%= (intereses||[]).includes('mindfulness') ?
+            'checked' : '' %> />
+            <label for="mindfulness">Mindfulness</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit">Crear cuenta</button>
+    </form>
+  </section>
+</main>

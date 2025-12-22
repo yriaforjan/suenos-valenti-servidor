@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Inicio - Sueños Valenti</title>
+  </head>
+  <body class="<%= tema %>">
+    <header class="inicio-header">
+      <h1 style="display: none">Sueños Valenti</h1>
+      <img class="logo" src="/images/logo.png" alt="" />
+      <h2>Sesiones grupales para conectar con tu supra conciencia</h2>
+    </header>
+
+    <main class="container-inicio">
+      <nav class="inicio-nav">
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburguesa">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+
+        <ul class="inicio-menu nav-links">
+          <% if (!usuario) { %>
+          <li><a href="/login">Acceder</a></li>
+          <li><a href="/registro">Registrarme</a></li>
+          <% } else { %>
+          <li><a href="/logout">Cerrar Sesión</a></li>
+          <% } %>
+          <li><a href="/preferencias">Preferencias</a></li>
+          <li><a href="/perfil">Mis sesiones</a></li>
+        </ul>
+      </nav>
+
+      <section class="info-section">
+        <h3>Bienvenido al despertar de tu mente</h3>
+        <p class="intro-text">
+          En Sueños Valenti utilizamos técnicas de meditación profunda y estados
+          alterados de conciencia para ayudarte a encontrar respuestas en tu
+          interior.
+        </p>
+
+        <div class="grid-caracteristicas">
+          <div class="inicio-carta">
+            <h4>Sesiones en Vivo</h4>
+            <p>
+              Guiadas por facilitadores expertos en estados de supraconciencia.
+            </p>
+          </div>
+          <div class="inicio-carta">
+            <h4>Comunidad</h4>
+            <p>Comparte tus experiencias con otros viajeros de la mente.</p>
+          </div>
+          <div class="inicio-carta">
+            <h4>Personalización</h4>
+            <p>Ajusta tu experiencia según tus necesidades energéticas.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center">
+          <% if (!usuario) { %>
+          <a href="/registro" class="cta-btn">Comenzar el viaje ahora</a>
+          <% } else { %>
+          <a href="/perfil" class="cta-btn">Ir a mis sesiones</a>
+          <% } %>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 Sueños Valenti | Transformando sueños en conciencia profunda
+      </p>
+    </footer>
+  </body>
+</html>
