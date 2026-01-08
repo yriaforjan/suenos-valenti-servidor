@@ -93,8 +93,8 @@ Gestión de *variables de entorno*:
 
 ### 1️⃣ Clonar el Proyecto
 ```bash
-git clone <repository-url>
-cd sueños-valenti-servidor
+git clone https://github.com/yriaforjan/suenos-valenti-servidor.git
+cd suenos-valenti-servidor
 ```
 
 ### 2️⃣ Configurar Variables de Entorno
