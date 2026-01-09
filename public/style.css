@@ -237,6 +237,10 @@ body.oscuro {
   grid-column: span 2;
 }
 
+.registro .errores {
+  padding-left: 40px;
+}
+
 h1 {
   text-align: center;
   margin-bottom: 30px;
